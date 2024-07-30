@@ -1,0 +1,391 @@
+<?php
+
+		include('admin/connect.php');
+		session_start();
+		$_SESSION['message']='';
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		$query_users = mysql_query("SELECT * FROM admin WHERE username='$username' AND password='$password'")or die(mysql_error());
+		$num_row_users = mysql_num_rows($query_users);
+		$row_users = mysql_fetch_array($query_users);
+        $status=$row['status'];
+		 if($row['level']==1){ 
+		 if($status==1)
+		{
+		$_SESSION['user_id']=$row['user_id'];
+         echo "<script>window.location='dean_index.php';</script>";
+			} 
+			else
+		{
+		echo'<p class="wrong"> Your Account is not active Please contact the system Admin</p>';                                
+		   echo' <meta content="4;login.php" http-equiv="refresh" />';	
+		}
+		}	
+			else if($row['level']==2){
+          if($status==1)
+		{	
+		$_SESSION['user_id']=$row['user_id'];
+		
+         echo'  <meta content="1;heads_index.php" http-equiv="refresh" />';
+			}
+		
+		   
+		
+		}
+			else if($row['level']==3){
+          if($status==1)
+		{
+			
+		$_SESSION['user_id']=$row['user_id'];
+		
+         echo'  <meta content="1;instructor.php" http-equiv="refresh" />';
+			}
+			
+		}
+		else {
+		
+		echo'<br>';
+       echo'  <p class="wrong">Check Your username or/and Password</p>';                                
+		   echo' <meta content="4;login.php" http-equiv="refresh" />';	
+		}
+		}
+    ?>
+		
+		<!--
+		  if ($num_row_users > 0){
+		$_SESSION['id']=$row_users['admin_id'];
+		 
+		/*mysql_query("insert into user_log (username,login_date,admin_id)values('$username',NOW(),".$row_users['admin_id'].")")or die(mysql_error());
+		
+		*/?>
+					<script>
+alert('wellcome to admin panal');
+</script>
+		<?php
+		echo"<script>window.location='head_index.php';</script>";
+		  mysql_query("insert into user_log (username,login_date,user_id)values('$username',NOW(),".$row['account_id'].")")or die(mysql_error());
+		  } 
+		else
+		{
+			?>
+						<script>
+alert('please correct your password and username');
+</script>
+			<?php
+				                                
+		   echo"<script>window.location='index.php';</script>";
+		}	
+		  
+		?>
+
+
+
+-->
+
+innnnnnn
+<?php include('header.php'); ?>
+<?php include('session.php'); ?>
+        <body id="class_div">
+		<?php include('navbar.php'); ?>
+        <div class="container-fluid">
+            <div class="row-fluid">
+				<?php include('admin_sidebar.php'); ?>
+				<div class="span3" id="adduser">
+				<?php include('add_instructor.php'); ?>		   			
+				</div><div class="span6" id="">
+                     <div class="row-fluid">
+                        <!-- block -->
+                        <div id="block_bg" class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="nav nav-pills-left"> <label>User List</label></div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="span12">
+									<form action="delete_instructor.php" method="post">
+  									<table cellpadding="0" cellspacing="0" border="0" class="table" id="example">
+									<a data-toggle="modal" href="#teacher_delete" id="delete"  class="btn btn-danger" name=""><i class="icon-trash icon-large"></i></a>
+									<?php include('modal_delete.php'); ?>
+										<thead>
+										  <tr>
+												<th></th>
+												
+												<th>Photo</th>
+                                                <th>Name</th>
+												<th>user ID</th>
+												<th>username</th>
+												<th>password</th>
+												<th></th>
+										   </tr>
+										</thead>
+										<tbody>
+													<?php
+													$user_query = mysql_query("select * from user")or die(mysql_error());
+													while($row = mysql_fetch_array($user_query)){
+                                                    $id=$row['user_id'];													
+                                                     $user_status = $row['user_status'];
+											  
+													?>
+									
+													
+														
+														<tr>
+														<td width="30">
+														<input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="<?php echo $id; ?>">
+														</td>
+														 <td width="40"><img class="img-circle" src="<?php echo $row['location']; ?>" height="50" width="50"></td>
+						                            <td><?php echo $row['f_name'] . " " . $row['l_name']; ?></td> 
+														<td><?php echo $row['username']; ?></td>
+									                       <td><?php echo $row['user_id']; ?></td>
+														<td><?php echo $row['password']; ?></td>
+												
+									<td width="50"><a href="edit_instructor.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-pencil"></i></a></td>
+									<?php if ($user_status == 'activated' ){ ?>
+									<td width="120"><a href="de_activateh_inst.php<?php echo '?id='.$id; ?>" class="btn btn-danger"><i class="icon-remove"></i>Deactivate</a></td>
+									<?php }else{ ?>
+									<td width="120"><a href="activateh_inst.php<?php echo '?id='.$id; ?>" class="btn btn-success"><i class="icon-check"></i> Activate</a></td>				
+									<?php } ?>
+                                </tr>
+                            <?php } ?>
+										</tbody>
+									</table>
+									</form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+
+
+                </div>
+            </div>
+			 <div class="container">
+		<?php include('footer.php'); ?>
+        </div>
+		<?php include('script.php'); ?>
+    </body>
+
+</html>
+
+
+
+addd
+   <!DOCTYPE html>
+   <head>
+   <body>
+   <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div  class="nav nav-pills-left">Create Account</div>
+								<div id="" class="muted pull-right"><a href="admin_index.php"><i class="icon-arrow-left"></i> Back</a></div>
+                            </div>
+							
+						
+								
+                            <div class="block-content collapse in">
+                                <div class="span12">
+								<form method="post" enctype="multipart/form-data">
+								
+										<label>Photo:</label>
+										<div class="control-group">
+                                          <div class="controls">
+                                               <input class="input-file uniform_on" name="image" id="fileInput" type="file" required>
+                                          </div>
+                                        </div>
+										
+										<div class="control-group">
+											<label>Department Name:</label>
+                                          <div class="controls">
+											<input type="hidden" name="session_id" value="<?php echo $session_id; ?>">
+                                            <select name="dep"  class="" required >
+                                             	<option></option>
+											<?php
+											$query = mysql_query("select * from department order by department_name");
+											while($row = mysql_fetch_array($query)){
+											
+											?>
+											<option value="<?php echo $row['department_name']; ?>"><?php echo $row['department_name']; ?></option>
+											<?php } ?>
+                                            </select>              </div>
+                                        </div>
+									<div class="control-group">
+                                          <div class="controls">
+                                            <input class="input focused" name="firstname" id="focusedInput" type="text"required pattern="[a-zA-Z]{4,15}" oninvalid="setCustomValidity('Name must be above three letter ')" onchange="try{setCustomValidity('')}catch(e){}" placeholder = "Firstname">
+											 </div>
+                                        </div>
+										
+										<div class="control-group">
+                                          <div class="controls">
+                                            <input class="input focused" name="lastname" id="focusedInput" type="text"required pattern="[a-zA-Z]{4,15}" oninvalid="setCustomValidity('Name must be above three letter ')" onchange="try{setCustomValidity('')}catch(e){}" placeholder = "Lastname">
+											 </div>
+                                        </div>
+											<div class="control-group">
+                                          <div class="controls">
+                                            <input class="input focused" name="username" id="focusedInput" type="text"required pattern="[a-zA-Z]{4,15}" oninvalid="setCustomValidity('Name must be above three letter ')" onchange="try{setCustomValidity('')}catch(e){}" placeholder = "username">
+                                          </div>
+                                        </div>
+										<div class="control-group">
+                                          <div class="controls">
+                                            <input class="input focused" name="user_id" id="focusedInput" min="1" type="number" oninvalid="setCustomValidity('ID must be number ')" onchange="try{setCustomValidity('')}catch(e){}" placeholder = "user ID">
+                                          </div>
+                                        </div>
+							
+										
+										<div class="control-group">
+                                          <div class="controls">
+                                            <input class="input focused" name="email" id="focusedInput" type="email" placeholder = "Email">
+                                          </div>
+                                        </div>
+										
+										
+										<div class="control-group">
+                                          <div class="controls">
+                                            <input  class="input focused" name="phone"   min="0" size='10'  id="focusedInput" type="phone" oninvalid="setCustomValidity('size is not much ')"  placeholder = "+251">
+                                          </div>
+                                        </div>
+										<div class="control-group">
+										<label>sex:</label>
+                                          <div class="controls">
+										    
+                <input type="radio"  name="sex" value="male" title="choose either male by clicking here" required />
+                  Male
+                  <input type="radio" name="sex" value="female" title='choose female by clicking here' required />
+                  Female
+              
+			  </div>
+                                        </div>
+										
+											<div class="control-group">
+											<label>Access type:</label>
+                                          <div class="controls">
+										
+          <select name="actype" required maxlength="5">
+                  <option ></option>
+				   <option value='1'>College Dean</option>
+                  <option value='2'>Department head</option>
+                  <option value='3'>Instructor</option>
+                </select>
+				</div>
+                                        </div>
+            
+										
+									<div class="control-group">
+                                          <div class="controls">
+                                            <input class="input focused" name="password" id="focusedInput" type="password"required pattern="[a-zA-Z0-9/()]{2,15}" oninvalid="setCustomValidity('id must be above three numbers ')" onchange="try{setCustomValidity('')}catch(e){}" placeholder = "password">
+                                          </div>
+                                        </div>
+										<div class="control-group">
+                                          <div class="controls">
+                                            <input class="input focused" name="confrmpassword" id="focusedInput" type="password"required pattern="[a-zA-Z0-9/()]{2,15}" oninvalid="setCustomValidity('id must be above three numbers ')" onchange="try{setCustomValidity('')}catch(e){}" placeholder = "confrmpassword">
+                                          </div>
+                                        </div>
+											<div class="control-group">
+                                          <div class="controls">
+												<button name="save" class="btn btn-info"><i class="icon-save icon-large"></i></button>
+
+                                          </div>
+                                        </div>
+                                </form>
+								</div>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+					
+					
+					    <?php
+						$_SESSION['message']='';
+                            if (isset($_POST['save'])) {
+                                $firstname = $_POST['firstname'];
+                                $lastname = $_POST['lastname'];
+								$username = $_POST['username'];
+								$acc_id=$_POST['user_id'];
+								$sex=$_POST['sex'];
+                                $department = $_POST['dep'];
+							    $email = $_POST['email'];
+								$phone = $_POST['phone'];
+							      $level=$_POST['actype'];
+							    $password = $_POST['password'];
+								 $confrmpassword = $_POST['confrmpassword'];
+							      if( $password==$confrmpassword){
+                                $location = "uploads/" . $_FILES["image"]["name"];
+								
+								$imageFileType = pathinfo($location,PATHINFO_EXTENSION);
+								if($imageFileType != "PNG" &&$imageFileType != "GFT" && $imageFileType != "JPG")
+								{
+     
+	
+$image_path=$_FILES['image']['name'];
+move_uploaded_file($_FILES["image"]["tmp_name"], "uploads/" . $_FILES["image"]["name"]);
+
+$query = mysql_query("select * from user where f_name='$firstname' and l_name='$lastname' and user_id = '$acc_id'")or die(mysql_error());
+								$count = mysql_num_rows($query);
+								if ($count > 0){ ?>
+								<script>
+								alert('Data Already Exist');
+								</script>
+								<?php
+								}
+								else
+								{
+
+                               $sql= mysql_query("insert into user(	user_id,f_name,l_name,username,dep_name,password,location,email,level,phone,status,user_status)
+								values ('$acc_id','$firstname','$lastname','$username','$department','$password','$location','$email','$level','$phone','1','activated')         
+								") or die(mysql_error());
+								
+mysql_query("insert into account (user_id,f_name,l_name,username,password,location,email,date) values('$acc_id','$firstname','$lastname','$username','$password','$location','$email',NOW())")or die(mysql_error());
+
+							?>
+								<script>
+								alert('successfuly created');
+								</script>
+								<script>
+							 	window.location = "instructor.php";
+							
+								</script>
+								
+								<?php
+								}
+								
+								
+								
+								}
+								else
+								{
+									?>
+									
+									<script>
+								alert('only created');
+								</script>
+								<?php
+								}
+								
+								  }
+								  else
+								  {
+								
+									?>
+									<script>
+								alert('passs created');
+								</script>
+								<?php  
+								  
+
+								  }
+							}
+								
+								
+							
+								?>
+						   
+						
+							
+								
+							   
+								
+							
+								
+		</head>
+</body>
+</html>		
+						 

@@ -1,0 +1,1914 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "\ndef stem():\n\n\n    \n    doc1=open(\"doc1.txt\",'r',encoding='utf-8')\n    file1=doc1.read()    \n    doc2=open(\"doc2.txt\",'r',encoding='utf-8')\n    file2=doc2.read()\n    \n\n    \n    print (\"(ትክክለኛው ቅጂ)\")\n    \n    print (\"\\n=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*\\n\")\n    print ( \" ##### First file #####\")\n    print (file1)   \n    \n    print (\"###### Second file ##########\")\n    print (file2)   \n    \n    \n    \n    \n    print (\"=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*\\n\")\n    print (\"================================================================================\\n\")\n\n    \n\n   \n\n    \n\n    print (\"=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*\\n\")\n    print (\"================================================================================\\n\")   \n\n\n    #Stopword ========================================\n\n\n    print(\"ከዚህ በመቀጠል አያያዠ ቃላት እናስወግዳለን።\")\n    stopw=open(\"stopword.txt\",'r',encoding='utf-8')\n    stopword=stopw.read()\n    for st in stopword.split():\n        file1=file1.replace(st,\"\")\n        file2=file2.replace(st,\"\")\n\n      \n    print()\n    print()\n    print (\"File one ----- \\n\")\n    print (file1)\n    print (\"File Two ----- \\n\")\n    print (file2)\n   \n\n    print()\n\n\n    #Steeming=========================================\n\n    \n    suff=open(\"suff.txt\",'r',encoding='utf-8')\n    su=suff.read()\n    \n    pref=open(\"pref.txt\",'r',encoding='utf-8')\n    pre=pref.read()\n    for s in su.split():\n       file1= file1.replace(s,\"\")\n\n            \n    for p in pre.split():\n       \n      file1= file1.replace(p,\"\")\n    \n\n      print()\n    print( \" Steeming file(ተመሳሳይ ቃላትን ማስወገድ ) \")\n    print (\"   file 1        \")\n    print( file1)\n    print()\n\n         \n   \n        \n\n\n \nstem()",
+			"settings":
+			{
+				"buffer_size": 1762,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/sort.py",
+			"settings":
+			{
+				"buffer_size": 189,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "name={\"sd\",\"df,\"rr\"}"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html>\n<?php\n\n include(\"session.php\");\ninclude(\"config.php\");\n?>\n<html>\n<head>\n<title>Academic Education V2 | Pages | Sidebar Left</title>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">\n<link href=\"./layout/styles/layout.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\">\n<link href=\"dess/boot.css\" rel=\"stylesheet\">\n</head>\n<body id=\"top\">\n\n<br>\n<div class=\"wrapper row2\">\n  <div class=\"rounded\">\n    <nav id=\"mainav\" class=\"clear\"> \n      \n      <ul class=\"clear\">\n        <li><a href=\"student.php\">Home</a></li>\n        <li ><a class=\"drop\" href=\"#\">Register</a>\n          <ul>\n\t\t  <li><a href=\"semester.php\">Register in Semester</a></li>\n            <li><a href=\"student.php?regis=\">Register in course</a></li>\n           \n          \n          \n          </ul>\n        </li>\n         <li ><a class=\"drop\" href=\"#\">View Information</a>\n          <ul>\n\t\t      <li><a href=\"student.php?vit=\"> View course</a></li>\n\t\t       <li><a href=\"student.php?ve=\">View Grade</a></li>\n\t\t\t    <li><a href=\"student.php?dis=\">View Notice</a></li>\n            \n\t\t\n          </ul>\n        </li>\n      \n      <li><a href=\"student.php?feed=\">Feedback</a></li>\n          <li><a class=\"drop\" href=\"#\">Edit profile</a>\n\t\t<ul>\n\t\t     <li><a href=\"student.php?pro=\">Change profile picture</a></li>\n\t\t\t <li><a href=\"student.php?des=\">Edit your Profile</a></li>\n\t\t\t \t <li><a href=\"student.php?chan=\">Change Password</a></li>\n\t\t\t \n\t\t</ul>\n\t\t</li>\n\t\t\n          <li> <a class=\"drop\" >   \n<?php\n\t\t\t\t\t\t\t$query=mysql_query(\"select * from account where id='$session_id'\") or die( mysql_error());\n\t\t\t\t\t\t\t$row=mysql_fetch_array($query);\n\t\t\t\t\t\t\t?>\n                     <center><?php echo $row['fname'];?>  <?php echo $row['mname'];  ?></center>  \t   </a> \n\t\t<ul>\n\t\t     <li><a href=\"student.php?edit=\">view profile</a></li>\n\t\t\t\n\t\t\t<li> <a  href=\"logout.php\">Logout</a></li>\n\t\t\t\n\t\t\n\t\t</ul>\n\t\t\n\t\t</li>\n\t\t   <li>\n                          \t<li>     \n <?php\n\t\t\t\t\t\t\t$query=mysql_query(\"select * from account where id='$session_id'\") or die( mysql_error());\n\t\t\t\t\t\t\t$row=mysql_fetch_array($query);\n\t\t\t\t\t\t\t?>\n                            <?php echo $row['user_type'];  ?>  \t\t\t\t\t\t\t                           </li>                   \n                        </li> \n      </ul>\n     \n    </nav>\n  </div>\n</div>\n\n<div class=\"wrapper row3\">\n  <div class=\"rounded\">\n    <main class=\"container clear\"> \n     \n      <div class=\"left\"> \n       \n    <div class=\"image\">\n                         <?php\n\t\t\t\t\t\t \n\t\t\t\t\t\t\t$Je = mysql_query(\"SELECT image FROM account WHERE id='$session_id' \"); \n                         while($row=mysql_fetch_assoc($Je))\n\t\t\t\t\t\t {\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\techo \"<img  class='img-circle profile_img'  src='profile/\".$row['image'].\"' align = 'left' height = '130px' width = '130px'>\";\n\t\t\t\t\t\t }\n\t\t\t\t\t\t\t?> \n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t  <br><br><br>\t\n\t\t\t\t\n\t\t\t<div class=\"date\">\n\t\t\t\t  <br><br><br>\t  <br><br><br>\t\t\t\n        <h4>Time:</h4>\n\t\t\t\t\t\t\t<script src=\"css/time.js\" language=\"javascript\" type=\"text/javascript\"></script>\n\t\t\t\t\t\t\t<body  onLoad=\"yourClock()\", onUnload=\"stopClock(); return true\"> \n\t\t\t\t\t       <form name=\"the_clock\">\n\t\t\t\t\t\t   <table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n\t\t\t\t\t\t \n\t\t\t\t\t\t\t<tr align=\"left\"><td> System Time:&nbsp;&nbsp;<input type=\"textt\" name=\"the_time\" size=\"20\" style=\"padding-bottom:5px;\"  color=\"red;\"  align = \"top\"></a></td></tr>\n\t\t\t\t\t\t\t<tr align=\"left\"><td><br/></td></tr></body>\n\t                    </table>\n\t                 </form>  \n \n\t <h4>Calender</h4>\n\t  <script src=\"css/calander.js\" language=\"jav<ascript\" type=\"text/javascript\"></script> \n\t\t\t\t</div>\n\t\t<br><br><br><br><br><br><br><br><br><br><br>\n        \n        \n      </div>\n\t\n        \n        \n    \n   \n      <div id=\"content\" class=\"two_third\"> \n\t  <?php\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t$id=$_GET['ID'];\n\t\t\t\t\t\t\t\t\t?>\n<?php\n\t$statu=\"post\";\n\t\t\t\t\t\t\t\t\t$dese = mysql_query(\"SELECT * FROM post_noticee WHERE statu='$statu'\"); \n\t\t\t\t\t\t\t\t\t\t  $X=0;\n\t\t\t\t\t\t\t\t\t\t  while($de = mysql_fetch_array($dese)){\n\t\t\t\t\t\t\t\t\t\t\t$statu=$de['statu'];\n\t\t\t\t\t\t\t\t\t\t\tif($statu==\"post\"){\n\t\t\t\t\t\t\t\t\t\t\t$X++;\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\telse{\n\t\t\t\t\t\t\t\t\t\t\t$X=0;\n\t\t\t\t\t\t\t\t\t\t\t}}?>\n\t\t\t\t\t\t\t<?php \n\t\t\t\t\t\t\techo\"\";\n\t\t                  echo\"<font face='times new roman' size='5px' color='blue'>\";\n\t\t\t           echo'There are &nbsp;'.$X.'&nbsp; new News.';\n\t\t\t          echo\"</font>\";\n\t\t\t              echo\"</script>\";\n\t\t\t                 echo\"\";?>\n\t<br>\n\t\n\t\t<?php\n\t$result=mysql_query(\"SELECT * FROM post_noticee WHERE post_id='$id' order by post_id DESC \") or die( mysql_error());\n\n\t\t// $array = array();\t\t\t\t\t\n\t$row = mysql_fetch_array($result);\n\t\t// $array[] = $row;\n\t\t$string=$row[\"post_content\"];\n\n\t\t?>\n\n \t<?php\n\t\t\t $username =$row[\"username\"];\n\t\tif($username == 'admin' || $username == 'department')\n\t\t{\t\t\t\t\t\t\t\t\t\n\t\t \n\t \n?>\n\n\t\t<div class=\"postTitle\">\n\t\t\t<div class=\"innerTitle\"> \n\t\t\t<img style=\"width:50px; height:50px;\" alt='Unable to View' src=\"images/users.png\">\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t<?php\n\t\t\t\t\t\n\t\t\t\t\techo $row[\"post_title\"];\n\t\t\t\t\t\n\t\t\t\t?>\n\t\t\t\t\n\t\t\t<hr>\n\t\t\t</div>\n\t\t\t<div class=\"postBasicInfo\">\n\t\t\t\t<?php\n\t\t\t\t\techo \"<i><b>Post by</b> <b>\".$row[\"username\"].\"</b> <b>on</b> <b> \".$row[\"date\"].\"</b> </i>\";\n\t\t\t\t\t\n\t\t\t\t?>\n\t\t\t\t<hr>\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"postPost\">\n\t\t\t <?php echo $string;?>\n\t\t</div>\n\t\t<br>\n\t\t\n\t\t\n\t\t\n<?php\n\t}\n?>\n\n<?php\n\n$sqls=mysql_query(\"select * from post_noticee where status ='posted'\");\n\t\t\t\t\t\t\t\twhile($no=mysql_fetch_array($sqls)){\n\t\t\t\t\t\t\t\t\t$deadline=$no['deadline'];\n\t\t\t\t\t\t\t\t$mysql=mysql_query(\"DELETE FROM post_noticee WHERE deadline < NOW()\");\t\n\t\t\t\t\t\t\t\t}\n?>\n\n\n\n   \n      </div>\n     \n      <div class=\"clear\"></div>\n    </main>\n  </div>\n</div>\n\n<div class=\"wrapper row4\">\n  <div class=\"rounded\">\n    <footer id=\"footer\" class=\"clear\"> \n \n\n      <div class=\"one_third\">\n       \n        <ul class=\"faico clear\">\n          <li><a class=\"faicon-twitter\" href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n          <li><a class=\"faicon-linkedin\" href=\"#\"><i class=\"fa fa-linkedin\"></i></a></li>\n          <li><a class=\"faicon-facebook\" href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n          <li><a class=\"faicon-flickr\" href=\"#\"><i class=\"fa fa-flickr\"></i></a></li>\n          <li><a class=\"faicon-rss\" href=\"#\"><i class=\"fa fa-rss\"></i></a></li>\n        </ul>\n      \n      </div>\n \n    </footer>\n  </div>\n</div>\n\n<div class=\"wrapper row5\">\n  <div id=\"copyright\" class=\"clear\"> \n\n    <p class=\"fl_left\">Copyright &copy; 2016 - by Information Systems 4th year student- <a href=\"#\"></a></p>\n   \n  </div>\n</div>\n\n</body>\n</html>",
+			"settings":
+			{
+				"buffer_size": 6607,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/import os.py",
+			"settings":
+			{
+				"buffer_size": 627,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "mport os"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/IRas.py",
+			"settings":
+			{
+				"buffer_size": 2069,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "head_displaynotice.php",
+			"settings":
+			{
+				"buffer_size": 3189,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/ass/impot.py",
+			"settings":
+			{
+				"buffer_size": 2008,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/GROUP 9TH/stem.py",
+			"settings":
+			{
+				"buffer_size": 3755,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/GROUP 9TH/PY 9TH GROUP.py",
+			"settings":
+			{
+				"buffer_size": 2783,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/assi/stm.py",
+			"settings":
+			{
+				"buffer_size": 2903,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/stopwords_am.txt",
+			"settings":
+			{
+				"buffer_size": 401,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/t.py",
+			"settings":
+			{
+				"buffer_size": 1032,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "def simple_tokenizer(document):"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/tf.py",
+			"settings":
+			{
+				"buffer_size": 2821,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/assss/stm.py",
+			"settings":
+			{
+				"buffer_size": 2856,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/assi/doc1.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/tfidf.py",
+			"settings":
+			{
+				"buffer_size": 2751,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/x=1.py",
+			"settings":
+			{
+				"buffer_size": 153,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "x=1"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/input='pleasee'.py",
+			"settings":
+			{
+				"buffer_size": 45,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "input='pleasee'"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/proj.py",
+			"settings":
+			{
+				"buffer_size": 7896,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "def doActivity(EnteredText):\n    #sirna tuqaalee Balleessuu (Removing Punctualization marks)\n    punc_marks=\"0 1 2 3 4 5 6 7 8 9 … . \\\" / = -  ፡- ! # %  — *  ( ) — + | } {  ： ? ,  /  ; \"\n    splitted_punc=punc_marks.split()\n    for punc in splitted_punc:\n     EnteredText= EnteredText.replace(punc,\" \")\n    #Jecha yookiin barreeffama qoqqooduu/Tokenizing document or text \n    Token_enteredText= EnteredText.split()\n    print(' ')\n    print('____________________________________________________________')\n    print (\"             Removing panctualization marks\")\n    print(EnteredText)\n    print('____________________________________________________________\\n')\n    print(' ')\n    print (\" 1  Erga sirni tuqaalee badanii booda/After removing punctuation marks\\n\")\n    print(EnteredText)\n    print('_______________________________________________________________')\n    print(' Jecha Qoqqoodame/Tokenized text')\n    print(Token_enteredText)\n    #walqabsiistota balleessuu (removing stop words)\n    print('')\n    stopword_list=open('stopwords.txt','r',encoding='utf-8')\n    stopword_tokens=stopword_list.read().split()\n    entered_query=EnteredText.lower().split()\n    Normalized_query = [term for term in entered_query\n        if term not in stopword_tokens]\n    Normalized_query=\"\"\n    space=\" \"\n    for term in entered_query:\n        if term not in stopword_tokens:\n            Normalized_query=Normalized_query+space+term\n    print('____________________________________________________________')\n    print (\" Itti fufuun walqabsiistota balleessina/Removing Stop words \")\n    print('____________________________________________________________\\n')\n  \n    print('2  walqabsiistota erga balleessinee booda/After removing stopwords')\n    print(' ')\n    termlist=\"\"\n    EnteredText = termlist.join(str(terms) for terms in Normalized_query)\n    print(EnteredText)\n    #maxxantuu duraa balleessuu(removing prefix)\n    prefixes=open('prefixes.txt','r',encoding='utf-8')\n    prefix_tokens=prefixes.read().split()\n    found = True\n    while found:\n        found = False\n        for term in EnteredText.split():\n            for prefix in prefix_tokens:\n                if term.lower().startswith(prefix):\n                    EnteredText = EnteredText.replace(term,term[len(prefix):]) #maxxantuu duraa(prefix) dhorkuuf\n                    found = True\n    print('____________________________________________________________')\n    print( \" Itti fufuun maxxantuu duraa balleessina/Removing prefix \")\n    print('____________________________________________________________\\n')\n    print (\"3  Maxxantoonni duraa erga badanii booda/After removing prefix\\n\")\n    print (EnteredText)\n    print()\n    #maxxantuu boodaa balleessuu(removing suffix)\n    suffixes=open('suffixes.txt','r',encoding='utf-8')\n    suffix_tokens=suffixes.read().split()\n    exceptions=open('exceptions.txt','r',encoding='utf-8')\n    excep_tokens=exceptions.read().split()\n    found = True\n    while found:\n        found = False\n        for term in EnteredText.split():\n            for suffix in suffix_tokens:\n                if term not in excep_tokens:\n                 if term.endswith(suffix): \n                    EnteredText = EnteredText.replace(term,term[:-len(suffix)]) #maxxantuu boodaa  (suffix) dhorkina \n                    found = True      \n    print('____________________________________________________________')\n    print( \" Kana booda maxxantuu boodaa balleessina/Removing suffix \")\n    print('____________________________________________________________\\n')\n    print (\" 4 Maxxantoonni boodaa erga badanii booda/After removing suffix\\n\")\n    print(EnteredText)\n    print('')\n    print('             __________________________________________')\n    print(' Gara fuula jalqabaa deebi\\'uuf 1 gadi qabaa/Press 1 to go back to Home Page')\n    print(' Cufuuf 2 gadi qabaa/Press 2 to close ')\n    print('             __________________________________________')\n    \n    Choice=input()\n    if Choice == '1':\n       print('')\n       homePage()\n    elif Choice == 'X' or 'x':\n       exit()\ndef homePage():\n    print('**************************************************')\n    print('                HARAMAYA   UNIVERSITY ') \n    print('')\n    print('            COLLEGE OF COMPUTING AND INFORMATICS')\n    print('            DEPARTMENT OF INFORMATION TECHNOLOGY  ')\n    print('____________________________________________________________')\n    print('           Group Members')\n    print('      Name                         ID_NO')\n    print(' 1. Abdulkerim Heyder..............349/08')\n    print(' 2. Fikadu Debale..................369/08')\n    print(' 3. Miftahi Mohammed...............392/08')\n    print(' 4. Rahma Mahdi....................4362/09')\n    print(' 5. Tolera Borga...................406/08')\n    print(' ')\n    print('**************************************************')\n    print(\"\"\"     Filannoowwan Armaan Gadii Keessaa Kan Feetan Galchaa/\n          Choose From The Following Alternatives\"\"\")\n    print('')\n    print('        Barreeffama Galchuuf  1 Gadi Qabaa/Press 1 To Enter text ')\n    print('        Fakkeenya Ilaaluuf   2 tuqaa/Press 2 To See Example')\n    print('        Cufuuf C tuqaa/Press C To Close      ')\n    print('**************************************************')\n    print(' Filannoo Keessan Galchaa/Enter Your Choice')\n    Choice=input()\n    Insert(Choice)\ndef Insert(Choice) :\n if Choice == '1':\n  print('    Barreeffama Galchaa/Enter Text')\n  EnteredText=input()\n  doActivity(EnteredText)\n elif Choice=='2':\n   print('  Fakkenyi Kan Armaan Gadiiti/Example Is As Follows')\n   print('____________________________________________________________')\n   print('')\n   EnteredText=open(\"document.txt\",'r',encoding='utf-8').read()\n   doActivity(EnteredText)\n elif Choice== 'C' or 'c':\n   print('Yoo Cufuu Barbaaddan \\'OK\\' Tuqaa/Press \\'OK\\' To Close')\n   exit()  \n else:\n  print(\"\"\"Filannon Keessan Dogoggora. Irra Deebi\\'aa Galchaa/\n        Invalid Input. Insert Again\"\"\")\n  Choice=input()\n  Insert(Choice)\nhomePage()",
+			"settings":
+			{
+				"buffer_size": 6014,
+				"line_ending": "Windows",
+				"name": "def doActivity(EnteredText):"
+			}
+		},
+		{
+			"contents": "def doActivity(EnteredText):\n    #sirna tuqaalee Balleessuu (Removing Punctualization marks)\n    punc_marks=\"0 1 2 3 4 5 6 7 8 9 … . \\\" / = -  ፡- ! # %  — *  ( ) — + | } {  ： ? ,  /  ; \"\n    splitted_punc=punc_marks.split()\n    for punc in splitted_punc:\n     EnteredText= EnteredText.replace(punc,\" \")\n    #Jecha yookiin barreeffama qoqqooduu/Tokenizing document or text \n    Token_enteredText= EnteredText.split()\n    print(' ')\n    print('____________________________________________________________')\n    print (\"             Removing panctualization marks\")\n    print(EnteredText)\n    print('____________________________________________________________\\n')\n    print(' ')\n    print (\" 1  Erga sirni tuqaalee badanii booda/After removing punctuation marks\\n\")\n    print(EnteredText)\n    print('_______________________________________________________________')\n    print(' Jecha Qoqqoodame/Tokenized text')\n    print(Token_enteredText)\n    #walqabsiistota balleessuu (removing stop words)\n    print('')\n    stopword_list=open('stopwords.txt','r',encoding='utf-8')\n    stopword_tokens=stopword_list.read().split()\n    entered_query=EnteredText.lower().split()\n    Normalized_query = [term for term in entered_query\n        if term not in stopword_tokens]\n    Normalized_query=\"\"\n    space=\" \"\n    for term in entered_query:\n        if term not in stopword_tokens:\n            Normalized_query=Normalized_query+space+term\n    print('____________________________________________________________')\n    print (\" Itti fufuun walqabsiistota balleessina/Removing Stop words \")\n    print('____________________________________________________________\\n')\n  \n    print('2  walqabsiistota erga balleessinee booda/After removing stopwords')\n    print(' ')\n    termlist=\"\"\n    EnteredText = termlist.join(str(terms) for terms in Normalized_query)\n    print(EnteredText)\n    #maxxantuu duraa balleessuu(removing prefix)\n    prefixes=open('prefixes.txt','r',encoding='utf-8')\n    prefix_tokens=prefixes.read().split()\n    found = True\n    while found:\n        found = False\n        for term in EnteredText.split():\n            for prefix in prefix_tokens:\n                if term.lower().startswith(prefix):\n                    EnteredText = EnteredText.replace(term,term[len(prefix):]) #maxxantuu duraa(prefix) dhorkuuf\n                    found = True\n    print('____________________________________________________________')\n    print( \" Itti fufuun maxxantuu duraa balleessina/Removing prefix \")\n    print('____________________________________________________________\\n')\n    print (\"3  Maxxantoonni duraa erga badanii booda/After removing prefix\\n\")\n    print (EnteredText)\n    print()\n    #maxxantuu boodaa balleessuu(removing suffix)\n    suffixes=open('suffixes.txt','r',encoding='utf-8')\n    suffix_tokens=suffixes.read().split()\n    exceptions=open('exceptions.txt','r',encoding='utf-8')\n    excep_tokens=exceptions.read().split()\n    found = True\n    while found:\n        found = False\n        for term in EnteredText.split():\n            for suffix in suffix_tokens:\n                if term not in excep_tokens:\n                 if term.endswith(suffix): \n                    EnteredText = EnteredText.replace(term,term[:-len(suffix)]) #maxxantuu boodaa  (suffix) dhorkina \n                    found = True      \n    print('____________________________________________________________')\n    print( \" Kana booda maxxantuu boodaa balleessina/Removing suffix \")\n    print('____________________________________________________________\\n')\n    print (\" 4 Maxxantoonni boodaa erga badanii booda/After removing suffix\\n\")\n    print(EnteredText)\n    print('')\n    print('             __________________________________________')\n    print(' Gara fuula jalqabaa deebi\\'uuf 1 gadi qabaa/Press 1 to go back to Home Page')\n    print(' Cufuuf 2 gadi qabaa/Press 2 to close ')\n    print('             __________________________________________')\n    \n    Choice=input()\n    if Choice == '1':\n       print('')\n       homePage()\n    elif Choice == 'X' or 'x':\n       exit()\ndef homePage():\n    print('**************************************************')\n    print('                HARAMAYA   UNIVERSITY ') \n    print('')\n    print('            COLLEGE OF COMPUTING AND INFORMATICS')\n    print('            DEPARTMENT OF INFORMATION TECHNOLOGY  ')\n    print('____________________________________________________________')\n    print('           Group Members')\n    print('      Name                         ID_NO')\n    print(' 1. Abdulkerim Heyder..............349/08')\n    print(' 2. Fikadu Debale..................369/08')\n    print(' 3. Miftahi Mohammed...............392/08')\n    print(' 4. Rahma Mahdi....................4362/09')\n    print(' 5. Tolera Borga...................406/08')\n    print(' ')\n    print('**************************************************')\n    print(\"\"\"     Filannoowwan Armaan Gadii Keessaa Kan Feetan Galchaa/\n          Choose From The Following Alternatives\"\"\")\n    print('')\n    print('        Barreeffama Galchuuf  1 Gadi Qabaa/Press 1 To Enter text ')\n    print('        Fakkeenya Ilaaluuf   2 tuqaa/Press 2 To See Example')\n    print('        Cufuuf C tuqaa/Press C To Close      ')\n    print('**************************************************')\n    print(' Filannoo Keessan Galchaa/Enter Your Choice')\n    Choice=input()\n    Insert(Choice)\ndef Insert(Choice) :\n if Choice == '1':\n  print('    Barreeffama Galchaa/Enter Text')\n  EnteredText=input()\n  doActivity(EnteredText)\n elif Choice=='2':\n   print('  Fakkenyi Kan Armaan Gadiiti/Example Is As Follows')\n   print('____________________________________________________________')\n   print('')\n   EnteredText=open(\"document.txt\",'r',encoding='utf-8').read()\n   doActivity(EnteredText)\n elif Choice== 'C' or 'c':\n   print('Yoo Cufuu Barbaaddan \\'OK\\' Tuqaa/Press \\'OK\\' To Close')\n   exit()  \n else:\n  print(\"\"\"Filannon Keessan Dogoggora. Irra Deebi\\'aa Galchaa/\n        Invalid Input. Insert Again\"\"\")\n  Choice=input()\n  Insert(Choice)\nhomePage()\n",
+			"file": "/C/Users/Semira sherefa/Documents/Lab/IR/IRASS.py",
+			"file_size": 6159,
+			"file_write_time": 131717904280000000,
+			"settings":
+			{
+				"buffer_size": 6015,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/stem.py",
+			"settings":
+			{
+				"buffer_size": 6894,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/ass/docs/some.py",
+			"settings":
+			{
+				"buffer_size": 3183,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "#excution start hear by calling the functions\nprint(\"\\t##=================================================================================\")\nprint(\"\\t========================== HARAMAYA UNIVERISTY===================================\")\nprint(\"\\t=================  COLLEGE COMPUTING ANG INFORMATICS ==========================\")\nprint(\"\\t================= DEPARTEMENT OF INFORMATIONTECHNOLOGY===========================\")\nprint(\"\\t=================  INFORMATION STORAGE AND RETRIEVAL  ==========================\")\nprint(\"\\t##=================================================================================\")\nprint(\"\\n\\t\\t\\t-------GROUP MEMBERS------------------\")\nprint(\"\\t\\t\\t   1. Wubetie Asmare Enyew\t\t                 1632/07\")\nprint(\"\\t\\t\\t   2. Hiwot Hailemichael Birhanu\t\t     377/08\")\nprint(\"\\t\\t\\t   3. Dame Deresa Kitessa                       359/08\")\nprint(\"\\t\\t\\t   4. Birtukan Yasin                            356/08\")        \nprint(\"\\t\\t\\t   5. Birhanu Gebisa Mulata                     355/08\")         \nprint(\"\\t\\t\\t   6. Abereham Abebe Kalkidan\t                 350/08\")\nprint(\"\\t=================================================================================\")\nprint(\"\\t================= SIMPLE STEMMING FOR AMHARIC LANGUAGE ==========================\")\nprint(\"\\t=================================================================================\\n\")\n\ndef stem:\n    #Remove Tokenizatin\n    punc=\"0 1 2 3 4 5 6 7 8 9 … . / = - ፣ ፡ ? ፤ ። ' ፡- ! · # % … — *  ( ) （ ） — + | } { “ ： ？ 〉 〈 , . / ' ; ::\"\n    for i in punc.split():\n     file_text= file_text.replace(i,\" \")\n    print('____________________________________________________________')\n    print(\"____________________Tokinaziation Documents  _______________\")\n    print('____________________________________________________________\\n')\n    print(file_text.split())\n           #Removing Stop Words\n    #Amharic stop word list\n    StopWord = \"ነው ለምን ወይስ ለዚህ መቼ ማን ምን ምክንያቱም ማለትም ስለ በላይ በተጨማሪ ይህ በኋላ በውስጥ በዚህ በዚያ ቢሆን ብቻ እርሶ እሱ እስከ እሷ እነሱ እና እኔ እንዴት እኛ ከ ከሱ ከዚህ ከፊት ወይም ወደ ውስጥ የማን የት ደግሞ ጀምሮ ጋር ግን\"\n    filteredtext = [t for t in file_text.split()\n        if t not in StopWord]\n    filteredtext=\"\"\n    space=\" \"\n    for t in file_text.split():\n        if t not in StopWord:\n            filteredtext=filteredtext+space+t\n    print('____________________________________________________________')\n    print (\"_________________STOPWORDS ELIMINATION Documents___________\")\n    print('____________________________________________________________\\n')\n  \n    file_text = ''.join(str(i) for i in filteredtext)\n    \n    print(file_text)\n    \n\t#Amharic language Prefix and Suffix\n    prefix=\"ቤተ ስነ ስለ እንዳል አል አይ ስላል የ ከ እየ ያ በ\"\n    suffix=\"ሽ ህ  ች ት  ች ችው ቸው ው ም ን ሉ\"\n    found = True\n    while found:\n        found = False\n        for term in file_text.split():\n            \n            for p in prefix:\n                if term.startswith(p):\n                    file_text = file_text.replace(term,term[len(p):])\n                    found = True\n    print('____________________________________________________________')\n    print( \"          ~=======Remove prefix========~                \")\n    print('____________________________________________________________')\n    print (file_text)\n    found = True\n    while found:\n        found = False\n        for term in file_text.split():\n            for s in suffix.split():\n                if term.endswith(s):\n                    file_text = file_text.replace(term,term[:-len(s)])  \n                    found = True\n             \n    print('____________________________________________________________')\n    print( \"          ~========Remove suffix===========~              \")\n    print('____________________________________________________________')\n    print(file_text)\n    print('_______________________________________________________________')\n    print (\"_________________STEMMING WORDS Documents______________________\")\n    print('______________________________________________________________')       \n    print(\"text data after stop words removal : \",file_text)\n    print (\"length of text data : \",len(file_text));\n      \n         \ndef main():\n    print('             Please enter 1 or X')\n    print('            ፠ Enter text to stemming press 1 using Amharic letter')\n    print('            ፠ Press x to close program')\n    value=input()\n    enter(value)\ndef enter(value) :\n if value == '1':\n  print('       ======የሚፈልጉት የ አማርኛ ዓ.ነገር ያስገቡ=======')\n  file_text=input()\n  file_op(file_text)\n elif value== 'X' or 'x':\n   exit()  \n else:\n  print('')\n  value=input()\n  enter(value)\nmain()\n",
+			"file": "/H/brestemmer.py",
+			"file_size": 5082,
+			"file_write_time": 131947352420000000,
+			"settings":
+			{
+				"buffer_size": 4595,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html>\n<?php\n\n include(\"session.php\");\ninclude(\"config.php\");\n?>\n<html>\n<head>\n<title>Academic Education V2 | Pages | Sidebar Left</title>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">\n<link href=\"./layout/styles/layout.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\">\n<link href=\"dess/boot.css\" rel=\"stylesheet\">\n</head>\n<body id=\"top\">\n\n<br>\n<div class=\"wrapper row2\">\n  <div class=\"rounded\">\n    <nav id=\"mainav\" class=\"clear\"> \n      \n      <ul class=\"clear\">\n        <li><a href=\"student.php\">Home</a></li>\n        <li ><a class=\"drop\" href=\"#\">Register</a>\n          <ul>\n\t\t  <li><a href=\"semester.php\">Register in Semester</a></li>\n            <li><a href=\"student.php?regis=\">Register in course</a></li>\n           \n          \n          \n          </ul>\n        </li>\n         <li ><a class=\"drop\" href=\"#\">View Information</a>\n          <ul>\n\t\t      <li><a href=\"student.php?vit=\"> View course</a></li>\n\t\t       <li><a href=\"student.php?ve=\">View Grade</a></li>\n\t\t\t    <li><a href=\"student.php?dis=\">View Notice</a></li>\n            \n\t\t\n          </ul>\n        </li>\n      \n      <li><a href=\"student.php?feed=\">Feedback</a></li>\n          <li><a class=\"drop\" href=\"#\">Edit profile</a>\n\t\t<ul>\n\t\t     <li><a href=\"student.php?pro=\">Change profile picture</a></li>\n\t\t\t <li><a href=\"student.php?des=\">Edit your Profile</a></li>\n\t\t\t \t <li><a href=\"student.php?chan=\">Change Password</a></li>\n\t\t\t \n\t\t</ul>\n\t\t</li>\n\t\t\n          <li> <a class=\"drop\" >   \n<?php\n\t\t\t\t\t\t\t$query=mysql_query(\"select * from account where id='$session_id'\") or die( mysql_error());\n\t\t\t\t\t\t\t$row=mysql_fetch_array($query);\n\t\t\t\t\t\t\t?>\n                     <center><?php echo $row['fname'];?>  <?php echo $row['mname'];  ?></center>  \t   </a> \n\t\t<ul>\n\t\t     <li><a href=\"student.php?edit=\">view profile</a></li>\n\t\t\t\n\t\t\t<li> <a  href=\"logout.php\">Logout</a></li>\n\t\t\t\n\t\t\n\t\t</ul>\n\t\t\n\t\t</li>\n\t\t   <li>\n                          \t<li>     \n <?php\n\t\t\t\t\t\t\t$query=mysql_query(\"select * from account where id='$session_id'\") or die( mysql_error());\n\t\t\t\t\t\t\t$row=mysql_fetch_array($query);\n\t\t\t\t\t\t\t?>\n                            <?php echo $row['user_type'];  ?>  \t\t\t\t\t\t\t                           </li>                   \n                        </li> \n      </ul>\n     \n    </nav>\n  </div>\n</div>\n\n<div class=\"wrapper row3\">\n  <div class=\"rounded\">\n    <main class=\"container clear\"> \n     \n      <div class=\"left\"> \n       \n    <div class=\"image\">\n                         <?php\n\t\t\t\t\t\t \n\t\t\t\t\t\t\t$Je = mysql_query(\"SELECT image FROM account WHERE id='$session_id' \"); \n                         while($row=mysql_fetch_assoc($Je))\n\t\t\t\t\t\t {\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\techo \"<img  class='img-circle profile_img'  src='profile/\".$row['image'].\"' align = 'left' height = '130px' width = '130px'>\";\n\t\t\t\t\t\t }\n\t\t\t\t\t\t\t?> \n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t  <br><br><br>\t\n\t\t\t\t\n\t\t\t<div class=\"date\">\n\t\t\t\t  <br><br><br>\t  <br><br><br>\t\t\t\n        <h4>Time:</h4>\n\t\t\t\t\t\t\t<script src=\"css/time.js\" language=\"javascript\" type=\"text/javascript\"></script>\n\t\t\t\t\t\t\t<body  onLoad=\"yourClock()\", onUnload=\"stopClock(); return true\"> \n\t\t\t\t\t       <form name=\"the_clock\">\n\t\t\t\t\t\t   <table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n\t\t\t\t\t\t \n\t\t\t\t\t\t\t<tr align=\"left\"><td> System Time:&nbsp;&nbsp;<input type=\"textt\" name=\"the_time\" size=\"20\" style=\"padding-bottom:5px;\"  color=\"red;\"  align = \"top\"></a></td></tr>\n\t\t\t\t\t\t\t<tr align=\"left\"><td><br/></td></tr></body>\n\t                    </table>\n\t                 </form>  \n \n\t <h4>Calender</h4>\n\t  <script src=\"css/calander.js\" language=\"jav<ascript\" type=\"text/javascript\"></script> \n\t\t\t\t</div>\n\t\t<br><br><br><br><br><br><br><br><br><br><br>\n        \n        \n      </div>\n\t\n        \n        \n    \n   \n      <div id=\"content\" class=\"two_third\"> \n\t  <?php\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t$id=$_GET['ID'];\n\t\t\t\t\t\t\t\t\t?>\n<?php\n\t$statu=\"post\";\n\t\t\t\t\t\t\t\t\t$dese = mysql_query(\"SELECT * FROM post_noticee WHERE statu='$statu'\"); \n\t\t\t\t\t\t\t\t\t\t  $X=0;\n\t\t\t\t\t\t\t\t\t\t  while($de = mysql_fetch_array($dese)){\n\t\t\t\t\t\t\t\t\t\t\t$statu=$de['statu'];\n\t\t\t\t\t\t\t\t\t\t\tif($statu==\"post\"){\n\t\t\t\t\t\t\t\t\t\t\t$X++;\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\telse{\n\t\t\t\t\t\t\t\t\t\t\t$X=0;\n\t\t\t\t\t\t\t\t\t\t\t}}?>\n\t\t\t\t\t\t\t<?php \n\t\t\t\t\t\t\techo\"\";\n\t\t                  echo\"<font face='times new roman' size='5px' color='blue'>\";\n\t\t\t           echo'There are &nbsp;'.$X.'&nbsp; new News.';\n\t\t\t          echo\"</font>\";\n\t\t\t              echo\"</script>\";\n\t\t\t                 echo\"\";?>\n\t<br>\n\t\n\t\t<?php\n\t$result=mysql_query(\"SELECT * FROM post_noticee WHERE post_id='$id' order by post_id DESC \") or die( mysql_error());\n\n\t\t// $array = array();\t\t\t\t\t\n\t$row = mysql_fetch_array($result);\n\t\t// $array[] = $row;\n\t\t$string=$row[\"post_content\"];\n\n\t\t?>\n\n \t<?php\n\t\t\t $username =$row[\"username\"];\n\t\tif($username == 'admin' || $username == 'department')\n\t\t{\t\t\t\t\t\t\t\t\t\n\t\t \n\t \n?>\n\n\t\t<div class=\"postTitle\">\n\t\t\t<div class=\"innerTitle\"> \n\t\t\t<img style=\"width:50px; height:50px;\" alt='Unable to View' src=\"images/users.png\">\n\t\t\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t\t\t<?php\n\t\t\t\t\t\n\t\t\t\t\techo $row[\"post_title\"];\n\t\t\t\t\t\n\t\t\t\t?>\n\t\t\t\t\n\t\t\t<hr>\n\t\t\t</div>\n\t\t\t<div class=\"postBasicInfo\">\n\t\t\t\t<?php\n\t\t\t\t\techo \"<i><b>Post by</b> <b>\".$row[\"username\"].\"</b> <b>on</b> <b> \".$row[\"date\"].\"</b> </i>\";\n\t\t\t\t\t\n\t\t\t\t?>\n\t\t\t\t<hr>\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"postPost\">\n\t\t\t <?php echo $string;?>\n\t\t</div>\n\t\t<br>\n\t\t\n\t\t\n\t\t\n<?php\n\t}\n?>\n\n<?php\n\n$sqls=mysql_query(\"select * from post_noticee where status ='posted'\");\n\t\t\t\t\t\t\t\twhile($no=mysql_fetch_array($sqls)){\n\t\t\t\t\t\t\t\t\t$deadline=$no['deadline'];\n\t\t\t\t\t\t\t\t$mysql=mysql_query(\"DELETE FROM post_noticee WHERE deadline < NOW()\");\t\n\t\t\t\t\t\t\t\t}\n?>\n\n\n\n   \n      </div>\n     \n      <div class=\"clear\"></div>\n    </main>\n  </div>\n</div>\n\n<div class=\"wrapper row4\">\n  <div class=\"rounded\">\n    <footer id=\"footer\" class=\"clear\"> \n \n\n      <div class=\"one_third\">\n       \n        <ul class=\"faico clear\">\n          <li><a class=\"faicon-twitter\" href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n          <li><a class=\"faicon-linkedin\" href=\"#\"><i class=\"fa fa-linkedin\"></i></a></li>\n          <li><a class=\"faicon-facebook\" href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n          <li><a class=\"faicon-flickr\" href=\"#\"><i class=\"fa fa-flickr\"></i></a></li>\n          <li><a class=\"faicon-rss\" href=\"#\"><i class=\"fa fa-rss\"></i></a></li>\n        </ul>\n      \n      </div>\n \n    </footer>\n  </div>\n</div>\n\n<div class=\"wrapper row5\">\n  <div id=\"copyright\" class=\"clear\"> \n\n    <p class=\"fl_left\">Copyright &copy; 2016 - by Information Systems 4th year student- <a href=\"#\"></a></p>\n   \n  </div>\n</div>\n\n</body>\n</html>",
+			"settings":
+			{
+				"buffer_size": 6607,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/assi/me.py",
+			"settings":
+			{
+				"buffer_size": 3624,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/GROUP 9TH/groupnine.py",
+			"settings":
+			{
+				"buffer_size": 3477,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/GROUP 9TH/D1.txt",
+			"settings":
+			{
+				"buffer_size": 734,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/assi/punctuation.txt",
+			"settings":
+			{
+				"buffer_size": 38,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/assi/import o.py",
+			"settings":
+			{
+				"buffer_size": 2009,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/ass/IRas.py",
+			"settings":
+			{
+				"buffer_size": 2058,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/ass/sam.py",
+			"settings":
+			{
+				"buffer_size": 4281,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/ass/some.py",
+			"settings":
+			{
+				"buffer_size": 1431,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/ass/stem.py",
+			"settings":
+			{
+				"buffer_size": 740,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/ass/sa.py",
+			"settings":
+			{
+				"buffer_size": 1146,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/ass/ir.py",
+			"settings":
+			{
+				"buffer_size": 989,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Program Files/Sublime Text 3/Packages/C++.sublime-package",
+			"settings":
+			{
+				"buffer_size": 488845,
+				"encoding": "Hexadecimal",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/mport .py",
+			"settings":
+			{
+				"buffer_size": 628,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "mport os"
+			}
+		},
+		{
+			"contents": "<?php\n\t\tinclude(\"connection.php\");\n\tsession_start();\n?>\n<!DOCTYPE html >\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<title>ATM interface</title>\n<link href=\"logstyle.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />\n<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />\n<link href=\"aa.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />\n<script src=\"aa.js\" type=\"text/javascript\"></script>\n</head>\n<body>\n\n\n<br>\n\t\n<div style=\"width:420px; height:350px; margin:0 auto; position:relative; border:2px solid rgba(0,0,0,0); -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:25px; -webkit-box-shadow:0 0 18px rgba(0,0,0,0.4); -moz-box-shadow:0 0 18px rgba(0,0,0,0.4); box-shadow:0 0 18px rgba(0,0,0,0.4); margin-top:20px; color:#000000;\">\n\n  <form id=\"form1\" name=\"login\" method=\"POST\" action=\"login.php\" onsubmit=\"return validateForm()\">\n <div style=\"background-color:#336699;border-radius:5px;font-family:Arial, Helvetica, sans-serif; color:#000000; padding:5px; height:22px;\"> \n \n \n <div style=\"float:left;\" ><strong><font color=\"white\" size=\"2px\">Please enter your PIN</font></strong></div>\n <div style=\"float:right; margin-right:20px; background-color:#cccccc; width:25px;  text-align:center; border-radius:10px; height:12px;\"><a href=\"index.php\" title=\"Close\"><img src=\"img/close_icon.gif\"></a></div>\n \n \n </div>\n <?php\n\t   if (isset($_POST['submitlogin'])){ \n\t   \n\t    $PIN=$_POST['PIN'];\n\t    $sql = \"SELECT * FROM users WHERE   PIN='$PIN'\";\n\t    $result = mysql_query($sql); \n\t\t// TO check that at least one row was returned \n\t\t$rowCheck = mysql_num_rows($result);\n\t\t$row=mysql_fetch_array($result);\n        $status=$row['status'];\n\t\t if($row['level']==1){ \n\t\t if($status==1)\n\t\t _SESSION['user_id']=$row['user_id'];\n\t\t\n         echo'  <meta content=\"1;pro_manager.php\" http-equiv=\"refresh\" />';\n\t\t\t}\n\t\t\telse\n\t\t{\n\t\techo'  <p class=\"wrong\"> Your Account is not active Please contact the system Admin</p>';                                \n\t\t   echo' <meta content=\"4;login.php\" http-equiv=\"refresh\" />';\t\n\t\t   \n\t\t}\n\n\n\n\n\n\t\t{\n\t\t$_SESSION['user_id']=$row['user_id'];\n         echo \"<script>window.location='admin.php';</script>\";\n\t\t\t} \n\t\t\telse\n\t\t{\n\t\t\n\t\techo'<br>';\n       echo'  <p class=\"wrong\">check your PIN</p>';                                \n\t\t   echo' <meta content=\"4;login.php\" http-equiv=\"refresh\" />';\t\n\t\t\n\t\t}\n    mysql_close($conn);\n    ?>\n <p align=\"center\"><img src=\"img/login_icon1.gif\" title=\"Please enter your PIN\" width=\"80\"></p>\n  <table width=\"286\" valign=\"top\" align=\"center\" border=\"0\">\n  \n \n\t\t <tr>\n\t       <td class='para1_text'><font color=\"red\">*</font> PIN:</td><td><input type=\"password\" name=\"password\" required x-moz-errormessage=\"Enter PIN\" ></td>\n\t     </tr>\n\t\t \n  <tr>\n    <td>&nbsp;</td>\n\t<br>\n    <td><input type=\"submit\" name=\"submitlogin\" class=\"button_example\" value=\"login\" /></td>\n  </tr>\n</table> \n  </form>\n<!--Php Script-->  \n\t   \n\t   \n\n</div>\n</td>\n\n\n<!--End Body of section-->\n\n<!--Footer-->\n\n\n<!--End of Footer-->\n</body>\n</html>",
+			"settings":
+			{
+				"buffer_size": 3052,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/pro/sear.py",
+			"settings":
+			{
+				"buffer_size": 7930,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "import os"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/pro/steemmmmmmel.py",
+			"settings":
+			{
+				"buffer_size": 3600,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Semira sherefa/Documents/Lab/la.py",
+			"settings":
+			{
+				"buffer_size": 8290,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Semira sherefa/Desktop/group 6/index.py",
+		"/C/xam/htdocs/att/register.php",
+		"/G/CD/att/login.php",
+		"/G/CD/att/db/dbCon.php",
+		"/C/Users/Semira sherefa/Documents/Lab/assi/stm.py",
+		"/C/Users/Semira sherefa/Documents/ass/doc2.txt",
+		"/C/Users/Semira sherefa/Documents/ass/some.py",
+		"/C/Users/Semira sherefa/Documents/sad/impo.py",
+		"/C/Users/Semira sherefa/Documents/Lab/steming.py",
+		"/C/Users/Semira sherefa/Documents/Lab/assi/import o.py",
+		"/C/Users/Semira sherefa/Documents/Lab/impor.py",
+		"/C/Users/Semira sherefa/Documents/Lab/la.py",
+		"/C/Users/Semira sherefa/Documents/Lab/ass/impot.py"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 17,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1762,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 27,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/sort.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								189
+							]
+						],
+						"settings":
+						{
+							"auto_name": "name={\"sd\",\"df,\"rr\"}",
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6607,
+								6607
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 7433.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/import os.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 627,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								189,
+								163
+							]
+						],
+						"settings":
+						{
+							"auto_name": "mport os",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 97.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 28,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/IRas.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2069,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1788,
+								1788
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2214.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "head_displaynotice.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								517,
+								517
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/ass/impot.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								180,
+								180
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 26,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/GROUP 9TH/stem.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3755,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1745,
+								1745
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 22,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/GROUP 9TH/PY 9TH GROUP.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2783,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32,
+								32
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 31,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/assi/stm.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2903,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2751,
+								2751
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1384.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/stopwords_am.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/t.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								920,
+								480
+							]
+						],
+						"settings":
+						{
+							"auto_name": "def simple_tokenizer(document):",
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 258.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 24,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/tf.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2821,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								183,
+								183
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/assss/stm.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2856,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2136,
+								2136
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1355.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/assi/doc1.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 23,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/tfidf.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2751,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2224,
+								2224
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1254.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 25,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/x=1.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 153,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								33,
+								35
+							]
+						],
+						"settings":
+						{
+							"auto_name": "x=1",
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/input='pleasee'.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 45,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2,
+								2
+							]
+						],
+						"settings":
+						{
+							"auto_name": "input='pleasee'",
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/proj.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7896,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6014,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6014,
+								6014
+							]
+						],
+						"settings":
+						{
+							"auto_name": "def doActivity(EnteredText):",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3414.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 30,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/IR/IRASS.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6015,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15,
+								15
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 29,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/stem.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2439,
+								2439
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1292.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "/C/Users/Semira sherefa/Documents/ass/docs/some.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3183,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								505,
+								657
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 1077.0,
+						"translation.y": 348.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 24,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 25,
+					"file": "/H/brestemmer.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2597,
+								1899
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 754.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 26,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6607,
+								6607
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 7404.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 27,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/assi/me.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3624,
+								3624
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3917.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 33,
+					"type": "text"
+				},
+				{
+					"buffer": 28,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/GROUP 9TH/groupnine.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3477,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1162,
+								1162
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 638.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 32,
+					"type": "text"
+				},
+				{
+					"buffer": 29,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/GROUP 9TH/D1.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 734,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 37,
+					"type": "text"
+				},
+				{
+					"buffer": 30,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/assi/punctuation.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 38,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 36,
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/assi/import o.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2009,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1,
+								1
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 34,
+					"type": "text"
+				},
+				{
+					"buffer": 32,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/ass/IRas.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2058,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2046,
+								2046
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2254.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 33,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/ass/sam.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4281,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3333,
+								3333
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2718.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 34,
+					"file": "/C/Users/Semira sherefa/Documents/ass/some.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1431,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1431,
+								1431
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1747.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 35,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 36,
+					"file": "/C/Users/Semira sherefa/Documents/ass/stem.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 740,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								740,
+								740
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 523.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 37,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/ass/sa.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1146,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 35,
+					"type": "text"
+				},
+				{
+					"buffer": 38,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/ass/ir.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 989,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 42,
+					"type": "text"
+				},
+				{
+					"buffer": 39,
+					"file": "/C/Program Files/Sublime Text 3/Packages/C++.sublime-package",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 488845,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								399,
+								39
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 287921.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 44,
+					"type": "text"
+				},
+				{
+					"buffer": 40,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/mport .py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 628,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								628,
+								628
+							]
+						],
+						"settings":
+						{
+							"auto_name": "mport os",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 195.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 43,
+					"type": "text"
+				},
+				{
+					"buffer": 41,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3052,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1761,
+								1761
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 456.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 41,
+					"type": "text"
+				},
+				{
+					"buffer": 42,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/pro/sear.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7930,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7930,
+								7930
+							]
+						],
+						"settings":
+						{
+							"auto_name": "import os",
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 38,
+					"type": "text"
+				},
+				{
+					"buffer": 43,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/pro/steemmmmmmel.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3600,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								13
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 39,
+					"type": "text"
+				},
+				{
+					"buffer": 44,
+					"file": "/C/Users/Semira sherefa/Documents/Lab/la.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8290,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								572,
+								572
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 464.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 40,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 456.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "hhh.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
